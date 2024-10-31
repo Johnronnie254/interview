@@ -1,0 +1,56 @@
+.upload-form-container {
+    text-align: center;
+    margin: 20px;
+}
+
+.upload-button {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.upload-button input[type='file'] {
+    display: none; /* Hide the default file input */
+}
+
+button {
+    background-color: #4CAF50; /* Green */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.message {
+    margin-top: 20px;
+    color: red; /* Change color for error messages */
+}
+
+.download-button {
+    background-color: #007BFF; /* Blue */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.card-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.card {
+    background-color: #f2f2f2;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 10px;
+    width: 200px; /* Fixed width for cards */
+    text-align: center;
+}
