@@ -1,8 +1,6 @@
-
-
 import React, { useState } from 'react';
 import axios from 'axios';
-import { FaDownload } from 'react-icons/fa';
+import { FaDownload, FaTimes } from 'react-icons/fa'; // Importing the 'X' icon
 import { Card, Container, Row, Col, Button } from 'react-bootstrap';
 import './UploadForm.css';
 
@@ -32,8 +30,9 @@ const UploadForm = () => {
                     'Content-Type': 'multipart/form-data',
                 },
             });
-            setConvertedText(response.data.text); // Adjust based on your Django response format
+            setConvertedText(response.data.text); 
             setMessage('File uploaded and converted successfully!');
+            setFile(null); // Clear the file input after successful upload
         } catch (error) {
             setMessage('Error uploading the file. Please try again.');
         }
@@ -41,11 +40,17 @@ const UploadForm = () => {
 
     const handleDownload = () => {
         const element = document.createElement("a");
-        const file = new Blob([convertedText], { type: 'text/plain' });
-        element.href = URL.createObjectURL(file);
+        const fileBlob = new Blob([convertedText], { type: 'text/plain' });
+        element.href = URL.createObjectURL(fileBlob);
         element.download = "converted_text.txt";
         document.body.appendChild(element);
         element.click();
+    };
+
+    // Function to remove the selected file
+    const handleRemoveFile = () => {
+        setFile(null);
+        setMessage(''); // Clear any previous messages
     };
 
     return (
@@ -58,7 +63,20 @@ const UploadForm = () => {
                         providing a simple and effective solution for registration and management.
                     </p>
                     <form onSubmit={handleSubmit}>
-                        <input type="file" name="image" accept="image/*" onChange={handleFileChange} required />
+                        <div className="file-input-container">
+                            <input 
+                                type="file" 
+                                name="image" 
+                                accept="image/*" 
+                                onChange={handleFileChange} 
+                                required 
+                            />
+                            {file && (
+                                <span className="remove-file" onClick={handleRemoveFile}>
+                                    <FaTimes /> {/* X icon to remove file */}
+                                </span>
+                            )}
+                        </div>
                         <Button type="submit" variant="primary" className="upload-btn">Upload</Button>
                     </form>
                     {message && <p className="message">{message}</p>}
