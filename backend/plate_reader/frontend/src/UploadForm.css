@@ -1,56 +1,59 @@
+/* src/components/UploadForm.css */
+
+/* Set the entire background color */
+body {
+    background-color: #f5f5f5; /* Light grey background */
+}
+
 .upload-form-container {
+    padding: 30px;
+    display: flex;
+    justify-content: center; /* Center content horizontally */
+    align-items: center;     /* Center content vertically */
+    min-height: 100vh;      /* Ensure it takes full height of the viewport */
+}
+
+.main-card {
+    width: 100%;
+    max-width: 800px; /* Set a max width for the card */
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px; /* Add padding to the card */
+}
+
+.header {
+    font-size: 2rem;
     text-align: center;
-    margin: 20px;
+    margin-bottom: 10px;
+    color: #333;
 }
 
-.upload-button {
-    display: inline-flex;
-    align-items: center;
-    cursor: pointer;
+.subheader {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #666;
+}
+
+.upload-btn {
+    display: block;
+    margin: 20px auto;
+}
+
+.download-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.feature-card {
     margin: 10px;
+    transition: transform 0.2s;
 }
 
-.upload-button input[type='file'] {
-    display: none; /* Hide the default file input */
-}
-
-button {
-    background-color: #4CAF50; /* Green */
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin: 10px;
+.feature-card:hover {
+    transform: scale(1.05);
 }
 
 .message {
-    margin-top: 20px;
-    color: red; /* Change color for error messages */
-}
-
-.download-button {
-    background-color: #007BFF; /* Blue */
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 10px;
-}
-
-.card-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 30px;
-}
-
-.card {
-    background-color: #f2f2f2;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 20px;
-    margin: 10px;
-    width: 200px; /* Fixed width for cards */
+    color: #ff0000;
     text-align: center;
 }
