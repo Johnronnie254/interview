@@ -25,7 +25,7 @@ const UploadForm = () => {
         formData.append('image', file);
 
         try {
-            const response = await axios.post('http://localhost:8000/api/upload/', formData, {
+            const response = await axios.post('https://interview-1509.onrender.com/api/upload/', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },
